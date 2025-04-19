@@ -40,18 +40,21 @@ public class User {
 	
 	
 	private String mobile;
+	
+	private String address;
 
 	  
     public User() {
     	
     }
-	public User(int phone, String email, String password, String username, String mobile) {
+	public User(int phone, String email, String password, String username, String mobile, String address) {
 		super();
 		this.phone = phone;
 		this.email = email;
 		this.password = password;
 		this.username = username;
 		this.mobile = mobile;
+		this.address = address;
 	}
 
 
@@ -118,7 +121,13 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", phone=" + phone + ", email=" + email + ", password=" + password + ", username="
-				+ username + ", mobile=" + mobile + "]";
+				+ username + ", mobile=" + mobile + ", address=" + address +"]";
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
 	}
 	
 

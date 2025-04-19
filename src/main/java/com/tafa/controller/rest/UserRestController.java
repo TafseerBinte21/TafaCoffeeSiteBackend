@@ -91,6 +91,16 @@ public class UserRestController{
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 	
+	@GetMapping(value = "/user-info",  produces = "application/json")
+	public ResponseEntity<Map<String, Object>> getUserInfo(@RequestParam String username) {
+	    User user = userRepository.findByUsername(username);
+	    Map<String, Object> response = new HashMap<>();
+	    response.put("status", "success");
+	    response.put("data", user);
+	    return ResponseEntity.ok(response);
+	}
 	
+	
+
 
 }

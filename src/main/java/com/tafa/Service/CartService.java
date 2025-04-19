@@ -1,6 +1,8 @@
 package com.tafa.Service;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -59,6 +61,15 @@ public class CartService {
             if (cart != null) {
             	cartItemRepo.delete(cart);
             }
+        }
+    }
+    
+    public List<Cart> getCartItemsByUsername(String username) {
+        User userOpt = userRepo.findByUsername(username);
+        if (userOpt != null) {
+            return cartItemRepo.findByUserId(userOpt.getId());
+        } else {
+            return Collections.emptyList();
         }
     }
 
